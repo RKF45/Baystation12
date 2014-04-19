@@ -35,6 +35,7 @@
 
 	//assemble all the pieces
 	var/finalcolor = "#[red][green][blue]"
+	world << "Final colour [finalcolor]"
 	return finalcolor
 
 /proc/mixOneColor(var/list/weight, var/list/color)

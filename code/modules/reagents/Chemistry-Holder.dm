@@ -111,6 +111,7 @@ datum
 					var/current_reagent_transfer = current_reagent.volume * part
 					if(preserve_data)
 						trans_data = copy_data(current_reagent)
+						world << "trans_data [trans_data]"
 
 					R.add_reagent(current_reagent.id, (current_reagent_transfer * multiplier), trans_data, safety = 1)	//safety checks on these so all chemicals are transferred
 					src.remove_reagent(current_reagent.id, current_reagent_transfer, safety = 1)							// to the target container before handling reactions
@@ -500,9 +501,9 @@ datum
 					SetViruses(R, data) // Includes setting data
 
 					//debug
-					//world << "Adding data"
-					//for(var/D in R.data)
-					//	world << "Container data: [D] = [R.data[D]]"
+					world << "Adding data"
+					for(var/D in R.data)
+						world << "Container data: [D] = [R.data[D]]"
 					//debug
 					update_total()
 					my_atom.on_reagent_change()

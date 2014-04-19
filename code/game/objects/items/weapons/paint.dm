@@ -11,8 +11,8 @@ var/global/list/cached_icons = list()
 	m_amt = 200
 	g_amt = 0
 	w_class = 3.0
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(10,20,30,50,70)
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = list(5,20,30,50,70)
 	volume = 70
 	flags = FPRINT | OPENCONTAINER
 	var/paint_type = ""
@@ -26,6 +26,8 @@ var/global/list/cached_icons = list()
 				reagents.reaction(target, TOUCH)
 				reagents.remove_any(5)
 		else
+			user.show_message("The paint can is empty.")
+			reagents.clear_reagents()
 			return ..()
 
 	New()
